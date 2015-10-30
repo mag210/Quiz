@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<!--
+    Copyright (c) 2012-2014 Adobe Systems Incorporated. All rights reserved.
+
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <!--<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" /> -->
+        <meta name="viewport" content="width=device-width, user-scalable=no"/>
+      <!-- <link rel="stylesheet" type="text/css" href="css/index.css"> -->
+       
+        <link rel="stylesheet" href="css/jquery.mobile-1.4.5.css">
+        <link rel="stylesheet" href="font_awesome/css/font-awesome.min.css">
+
+
+
+    
+
+
+
+        <title>University of Exeter Guild Events</title>
+    </head>
+    <body style="background-color:#e6e6e6">
+
+    <div id="reposHome" data-role="page">
+    <div class="menu" style="background-color:#228B22;" data-role="header" data-position="fixed"><h1 style="color:white;">Tennis Quiz 2015</h1></div>
+    <div data-role="content">
+
+
+            <div id="deviceready" class="blink">
+                <p class="event listening">Loading... <i class="fa fa-spinner fa-spin"></i></p>
+                <p class="event received"></p>
+           </div>
+       
+ <!--   
+<ul class="events" data-role="listview" data-inset="true">
+    <li data-role="list-divider" data-theme="a"><h2>Choose a feed</li>
+    <li class="guildEvents"><a href="index.html">Guild Events</a></li>
+    <li class="menu2"><a href="index.html">Guild Twitter</a></li>
+    <li><a href="index.html">something else...</a></li>
+</ul>
+-->    
+        
+
+        <form class="nameForm">
+        <label for="text-basic">Please enter your name</label>
+        <input name="text-basic" id="text-basic" value="" type="text">
+         </form>
+       <button id="submit" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-btn-b ui-mini">Submit</button>
+       
+
+
+    
+        <div id="instructions" class="ui-corner-all custom-corners" style="display:none">
+          <div id="welcome" class="ui-bar ui-bar-a">
+            <h3>Heading</h3>
+          </div>
+          <div class="ui-body ui-body-a">
+            <p>Test your Tennis skills, start the quiz below!</p>
+          </div>
+          <button id="startQuiz" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-btn-b ui-mini">Start Quiz</button>
+        </div>   
+
+
+<div id ="questions" style="display:none";>    
+
+
+
+    
+<form>
+        <fieldset data-role="controlgroup">
+        <legend>Who has won the most Grand Slams?</legend>
+        <input name="question1" class="question1" id="radio-choice-v-2a" value="Federer" type="radio">
+        <label for="radio-choice-v-2a">Federer</label>
+        <input name="question1" class="question1" id="radio-choice-v-2b" value="Nadal" type="radio">
+        <label for="radio-choice-v-2b">Nadal</label>
+        <input name="question1" class="question1" id="radio-choice-v-2c" value="Murray" type="radio">
+        <label for="radio-choice-v-2c">Murray</label>
+    </fieldset>
+</form>
+
+
+    <button id="endQuiz" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-btn-b ui-mini">End Quiz</button>
+</div>
+
+
+
+ 
+
+
+      
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        
+        <script src="js/jquery-1.11.3.min.js"></script>
+        <script>
+        $(document).bind('mobileinit',function()
+        {
+        $.mobile.changePage.defaults.changeHash = false;
+        $.mobile.hashListeningEnabled = false;
+        $.mobile.pushStateEnabled = false;
+        });
+
+
+        
+        </script>
+        <script src="js/jquery.mobile-1.4.5.js"></script>
+        <script>
+
+         app.initialize();   
+
+        $( "body" ).on("tap", ".guildEvents", function( event ) 
+        { 
+ 
+            $.mobile.loading( 'show', {
+            text: 'loading data',
+            textVisible: true,
+            theme: 'a',
+            html: ""
+            });
+           
+            loadEvents();
+            
+         });  
+
+        $( "body" ).on("click", "#submit", function( event ) 
+        { 
+            $(".nameForm").hide();
+            $("#submit").hide();
+            $("#instructions").show();
+            $("#welcome").empty().append("Welcome " +  $("#text-basic").val()) ;
+
+           //alert ( $("#text-basic").val()) ;
+            
+         }); 
+
+        $( "body" ).on("click", "#startQuiz", function( event ) 
+        { 
+            $("#instructions").hide();
+            $("#startQuiz").hide();
+            $("#questions").show();
+
+           //alert ( $("#text-basic").val()) ;
+            
+         }); 
+
+
+        $( "body" ).on("click", "#endQuiz", function( event ) 
+        { 
+
+             if ($('#radio-choice-v-2a').attr("checked") == "checked") {
+                alert ("checked") ;
+
+            }
+          
+            $("#startQuiz").hide();
+            $("#questions").hide();
+
+            
+            var total = 0 ; 
+
+           
+          
+           var answer1 = $('.question1:checked').val();
+            if ( answer1 == "Federer")
+           {
+            total ++ ;          
+           }
+           
+
+
+            $("#welcome").empty().append("You scored " + total) ;
+            $("#instructions").show();
+         }); 
+
+
+
+                
+
+
+         
+
+
+$( "body" ).on("tap", "#back", function( event ) 
+        { 
+            location.reload();
+            
+         });  
+
+
+        </script>
+
+    </div>
+</div>
+       
+    </body>
+</html>
