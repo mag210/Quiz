@@ -43,7 +43,7 @@
     <body style="background-color:#e6e6e6">
 
     <div id="reposHome" data-role="page">
-    <div class="menu" style="background-color:#228B22;" data-role="header" data-position="fixed"><img style="float:right" src="img\racket.png"/><h1 style="color:white;">Tennis Quiz 2015</h1><button style="float:left" class="fa fa-chevron-left" id="back"></button></div>
+    <div class="menu" style="background-color:#228B22;" data-role="header" data-position="fixed" data-tap-toggle="false"><img style="float:right" src="img\racket.png"/><h1 style="color:white;">Tennis Quiz 2015</h1><button style="float:left" class="fa fa-chevron-left" id="back"></button></div>
     <div data-role="content">
 
 
@@ -66,6 +66,7 @@
         <label for="text-basic">Please enter your name</label>
         <input name="text-basic" id="text-basic" value="" type="text">
          </form>
+         <br />
        <button id="submit" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-btn-b ui-mini">Submit</button>
        
 
@@ -78,6 +79,7 @@
           <div id ="summary" class="ui-body ui-body-a">
             <p>Test your Tennis skills, start the quiz below!</p>
           </div>
+          <br />
           <button id="startQuiz" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-btn-b ui-mini">Start Quiz</button>
         </div>   
 
@@ -185,9 +187,9 @@
 
         $( "body" ).on("click", "#submit", function( event ) 
         { 
-            if (("#text-basic").val() == "")
+            if ($("#text-basic").val() == "")
             {
-                alert ("Please enter a name")
+                alert ("Please enter a name") ;
                 return ;
             }    
 
