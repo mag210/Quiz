@@ -43,7 +43,7 @@
     <body style="background-color:#e6e6e6">
 
     <div id="reposHome" data-role="page">
-    <div class="menu" style="background-color:#228B22;" data-role="header" data-position="fixed"><h1 style="color:white;">Tennis Quiz 2015</h1></div>
+    <div class="menu" style="background-color:#228B22;" data-role="header" data-position="fixed"><img style="float:right" src="img\racket.png"/><h1 style="color:white;">Tennis Quiz 2015</h1><button style="float:left" class="fa fa-chevron-left" id="back"></button></div>
     <div data-role="content">
 
 
@@ -75,7 +75,7 @@
           <div id="welcome" class="ui-bar ui-bar-a">
             <h3>Heading</h3>
           </div>
-          <div class="ui-body ui-body-a">
+          <div id ="summary" class="ui-body ui-body-a">
             <p>Test your Tennis skills, start the quiz below!</p>
           </div>
           <button id="startQuiz" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-btn-b ui-mini">Start Quiz</button>
@@ -87,17 +87,57 @@
 
 
     
-<form>
-        <fieldset data-role="controlgroup">
+
+    <fieldset data-role="controlgroup">
         <legend>Who has won the most Grand Slams?</legend>
-        <input name="question1" class="question1" id="radio-choice-v-2a" value="Federer" type="radio">
-        <label for="radio-choice-v-2a">Federer</label>
-        <input name="question1" class="question1" id="radio-choice-v-2b" value="Nadal" type="radio">
-        <label for="radio-choice-v-2b">Nadal</label>
-        <input name="question1" class="question1" id="radio-choice-v-2c" value="Murray" type="radio">
-        <label for="radio-choice-v-2c">Murray</label>
+        <input name="question1" class="question1" id="radio-choice-v-1a" value="Federer" type="radio">
+        <label for="radio-choice-v-1a">Federer</label>
+        <input name="question1" class="question1" id="radio-choice-v-1b" value="Nadal" type="radio">
+        <label for="radio-choice-v-1b">Nadal</label>
+        <input name="question1" class="question1" id="radio-choice-v-1c" value="Murray" type="radio">
+        <label for="radio-choice-v-1c">Murray</label>
     </fieldset>
-</form>
+    <br />
+    <fieldset data-role="controlgroup">
+        <legend>How many French Open titles has Nadal won?</legend>
+        <input name="question2" class="question2" id="radio-choice-v-2a" value="Seven" type="radio">
+        <label for="radio-choice-v-2a">Seven</label>
+        <input name="question2" class="question2" id="radio-choice-v-2b" value="Six" type="radio">
+        <label for="radio-choice-v-2b">Six</label>
+        <input name="question2" class="question2" id="radio-choice-v-2c" value="Nine" type="radio">
+        <label for="radio-choice-v-2c">Nine</label>
+    </fieldset>
+    <br />
+     <fieldset data-role="controlgroup">
+        <legend>Who won the 2015 US Open?</legend>
+        <input name="question3" class="question3" id="radio-choice-v-3a" value="Serena Williams" type="radio">
+        <label for="radio-choice-v-3a">Serena Williams</label>
+        <input name="question3" class="question3" id="radio-choice-v-3b" value="Roberta Vinci" type="radio">
+        <label for="radio-choice-v-3b">Roberta Vinci</label>
+        <input name="question3" class="question3" id="radio-choice-v-3c" value="Flavia Pennetta" type="radio">
+        <label for="radio-choice-v-3c">Flavia Pennetta</label>
+    </fieldset>
+    <br />
+     <fieldset data-role="controlgroup">
+        <legend>In which year did "Tiger" Tim Henman make a suprise run to the French Open Semi Final?</legend>
+        <input name="question4" class="question4" id="radio-choice-v-4a" value="2003" type="radio">
+        <label for="radio-choice-v-4a">2003</label>
+        <input name="question4" class="question4" id="radio-choice-v-4b" value="2004" type="radio">
+        <label for="radio-choice-v-4b">2004</label>
+        <input name="question4" class="question4" id="radio-choice-v-4c" value="2007" type="radio">
+        <label for="radio-choice-v-4c">2007</label>
+    </fieldset>
+    <br />
+     <fieldset data-role="controlgroup">
+        <legend>In which year did Andy Murray win Wimbledon?</legend>
+        <input name="question5" class="question5" id="radio-choice-v-5a" value="2013" type="radio">
+        <label for="radio-choice-v-5a">2013</label>
+        <input name="question5" class="question5" id="radio-choice-v-5b" value="2012" type="radio">
+        <label for="radio-choice-v-5b">2012</label>
+        <input name="question5" class="question5" id="radio-choice-v-5c" value="2014" type="radio">
+        <label for="radio-choice-v-5c">2014</label>
+    </fieldset>
+    <br />
 
 
     <button id="endQuiz" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-btn-b ui-mini">End Quiz</button>
@@ -128,7 +168,6 @@
         <script>
 
          app.initialize();   
-         /*
 
         $( "body" ).on("tap", ".guildEvents", function( event ) 
         { 
@@ -143,10 +182,15 @@
             loadEvents();
             
          });  
-*/
 
         $( "body" ).on("click", "#submit", function( event ) 
         { 
+            if (("#text-basic").val() == "")
+            {
+                alert ("Please enter a name")
+                return ;
+            }    
+
             $(".nameForm").hide();
             $("#submit").hide();
             $("#instructions").show();
@@ -188,27 +232,67 @@
            {
             total ++ ;          
            }
-           
-
+           var answer2 = $('.question2:checked').val();
+           if ( answer2 == "Nine")
+           {
+            total ++ ;          
+           }
+           var answer3 = $('.question3:checked').val();
+           if ( answer3 == "Flavia Pennetta")
+           {
+            total ++ ;          
+           }
+            var answer4 = $('.question4:checked').val();
+           if ( answer4 == "2004")
+           {
+            total ++ ;          
+           }
+            var answer5 = $('.question5:checked').val();
+           if ( answer5 == "2013")
+           {
+            total ++ ;          
+           }
 
             $("#welcome").empty().append("You scored " + total) ;
+            var summary = "" ;
+            if (total == 5)
+            {
+              summary = "Congratulations 5 out of 5! You are the Rodger Federer of the Tennis Quiz world" ;      
+            } 
+            else if (total ==4)
+            {
+                summary = "Well done 4 out of 5! You are the Andy Murray of Tennis Quiz's " 
+            }
+            else if (total ==3)
+            {
+                summary = "Not bad 3 out of 5, the nearly man (Tim Henman) of the Tennis Quiz world..." 
+            }
+            else if (total <= 2)
+            {
+                summary = "Oh dear you scored" + total + " Better spend some more time on the practise courts..." 
+            } 
+            $("#summary").empty().append(summary) ;
             $("#instructions").show();
+
          }); 
 
 
 
                 
 
-
          
-/*
+
 
 $( "body" ).on("tap", "#back", function( event ) 
         { 
-            location.reload();
+            $("#questions").hide();
+            $("#instructions").hide();
+            $(".nameForm").show();
+            $("#submit").show();
+
             
          });  
-*/
+
 
         </script>
 
