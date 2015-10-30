@@ -1,4 +1,4 @@
-<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.phonegap.firstapp" version="1.0.0">
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.phonegap.tennisquiz" version="1.0.0">
   <name>Tennis Quiz</name>
   <description>Basic Tennis QUiz app</description>
   <author href="http://phonegap.com" email="support@phonegap.com">Max</author>
